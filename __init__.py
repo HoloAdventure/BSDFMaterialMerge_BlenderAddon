@@ -81,7 +81,7 @@ class HOLOMON_PT_addon_bsdf_material_marge(Panel):
     # パネルのカテゴリ名称を定義する
     # 3Dビューポートの場合、サイドバーの名称になる
     # デフォルトは名称無し
-    bl_category = "MRTK"
+    bl_category = "Util"
  
     # 描画の定義
     def draw(self, context):
