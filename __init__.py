@@ -10,7 +10,7 @@ from . import UI_operations
 bl_info = {
     "name": "HoloMon BSDF Material Marge Addon",     # プラグイン名
     "author": "HoloMon",                             # 制作者名
-    "version": (1, 0),                               # バージョン
+    "version": (1, 1),                               # バージョン
     "blender": (2, 80, 0),                           # 動作可能なBlenderバージョン
     "support": "TESTING",                            # サポートレベル
     "category": "Properties",                        # カテゴリ名
@@ -105,7 +105,7 @@ class HOLOMON_OT_addon_bsdf_material_marge(Operator):
     bl_idname = "holomon.bsdf_material_marge"
     # クラスのラベルを定義する
     # (デフォルトのテキスト表示などに利用)
-    bl_label = "BSDF Marge"
+    bl_label = "Material Marge"
     # クラスの説明文
     # (マウスオーバー時に表示)
     dl_description = "BSDF Material Marge Addon"
