@@ -1,6 +1,37 @@
 # bpyインポート
 import bpy
 
+# オブジェクトモードへの移行
+# モード切替のマニュアル
+# (https://docs.blender.org/api/current/bpy.ops.object.html#bpy.ops.object.mode_set)
+def set_mode_object() -> bool:
+    """オブジェクトモードへの移行
+
+    Returns:
+        bool -- 実行の正否
+    """
+
+    # オブジェクトモードに移行する
+    # モード切替のマニュアル
+    # (https://docs.blender.org/api/current/bpy.ops.object.html#bpy.ops.object.mode_set)
+    # 切り替え可能なモードの種類
+    #   OBJECT：オブジェクトモード
+    #   EDIT：編集モード
+    #   POSE：ポーズモード
+    #   SCULPT：スカルプトモード
+    #   VERTEX_PAINT：頂点ペイントモード
+    #   WEIGHT_PAINT：ウェイトペイントモード
+    #   TEXTURE_PAINT：テクスチャペイントモード
+    #   PARTICLE_EDIT：パーティクル編集モード
+    #   EDIT_GPENCIL：グリースペンシル編集モード
+    #   SCULPT_GPENCIL：グリースペンシルスカルプトモード
+    #   PAINT_GPENCIL：グリースペンシルペイントモード
+    #   WEIGHT_GPENCIL：グリースペンシルウェイトモード
+    # toggle:Trueの場合、既に編集モードの時、オブジェクトモードに戻る
+    bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
+
+    return True
+
 # 指定オブジェクトのマテリアルスロットをソートする
 def sort_materialslot_name(arg_object:bpy.types.Object) -> bool:
     """指定オブジェクトのマテリアルスロットをソートする

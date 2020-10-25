@@ -31,6 +31,14 @@ def UI_bsdf_material_marge(arg_target_object:bpy.types.Object) -> str:
             # プリンシプルBSDFを使用していないマテリアルが含まれている場合はエラーメッセージを表示する
             return "Material : " + check_mat.name + " is not BsdfPrincipled."
 
+    # マテリアルスロットの編集を行うため、オブジェクトモードに移行する
+    mode_result = control_materialslot_utilities.set_mode_object()
+
+    # 実行結果を確認する
+    if mode_result == False:
+        # 実行結果がエラーの場合はエラーメッセージを表示する
+        return "Execute : Mode Change failed."
+
     # 指定オブジェクトのマテリアルを類似マテリアルでマージする
     comp_result = comp_material_bsdf.material_marge_object(arg_object=arg_target_object)
 
