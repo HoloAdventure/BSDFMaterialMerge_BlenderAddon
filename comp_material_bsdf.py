@@ -28,7 +28,7 @@ def_comp_bsdfnode_input_list = [
 ]
 
 # 指定したオブジェクトのマテリアルを類似マテリアルにマージする
-def material_marge_object(arg_object:bpy.types.Object) -> bool:
+def material_merge_object(arg_object:bpy.types.Object) -> bool:
     """指定したオブジェクトのマテリアルを類似マテリアルにマージする
     以下の条件で類似マテリアルを判断する
     1.指定マテリアルのアクティブな出力ノードにノードが接続されているか

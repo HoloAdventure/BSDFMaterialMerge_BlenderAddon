@@ -1,4 +1,4 @@
-# BSDFMaterialMarge_BlenderAddon
+# BSDFMaterialMerge_BlenderAddon
 
 オブジェクト内のマテリアルスロットから、出力ノードにプリシプルBSDFノードが接続されたマテリアルの比較を行い、類似するマテリアルをマージする Blender アドオンです。
 
@@ -16,4 +16,4 @@
 
 インストール手順と使い方は以下のページを参照ください。
 
-[BSDFMaterialMargeアドオンを使って類似のマテリアルをマージする](https://bluebirdofoz.hatenablog.com/entry/2020/10/26/003419)
+[BSDFMaterialMergeアドオンを使って類似のマテリアルをマージする](https://bluebirdofoz.hatenablog.com/entry/2020/10/26/003419)
