@@ -35,13 +35,13 @@ from bpy.props import PointerProperty, BoolProperty, IntProperty, FloatProperty,
 #   bpy.types.UIList    UL
 
 # マテリアルベイクの実行パネル(3Dビュー)
-class HOLOMON_PT_addon_bsdf_material_Merge(Panel):
+class HOLOMON_PT_addon_bsdf_material_merge(Panel):
     # パネルのラベル名を定義する
     # パネルを折りたたむパネルヘッダーに表示される
     bl_label = "BSDF Material Merge"
     # クラスのIDを定義する
     # 命名規則は CATEGORY_PT_name
-    bl_idname = "HOLOMON_PT_addon_bsdf_material_Merge"
+    bl_idname = "HOLOMON_PT_addon_bsdf_material_merge"
     # パネルを使用する領域を定義する
     # 利用可能な識別子は以下の通り
     #   EMPTY：無し
@@ -96,13 +96,13 @@ class HOLOMON_PT_addon_bsdf_material_Merge(Panel):
         # 要素行を作成する
         button_row = draw_layout.row()
         # ベイクを実行するボタンを配置する
-        button_row.operator("holomon.bsdf_material_Merge")
+        button_row.operator("holomon.bsdf_material_merge")
 
 # マテリアルベイクの実行オペレーター
-class HOLOMON_OT_addon_bsdf_material_Merge(Operator):
+class HOLOMON_OT_addon_bsdf_material_merge(Operator):
     # クラスのIDを定義する
     # (Blender内部で参照する際のIDに利用)
-    bl_idname = "holomon.bsdf_material_Merge"
+    bl_idname = "holomon.bsdf_material_merge"
     # クラスのラベルを定義する
     # (デフォルトのテキスト表示などに利用)
     bl_label = "Material Merge"
@@ -136,7 +136,7 @@ class HOLOMON_OT_addon_bsdf_material_Merge(Operator):
             return {'CANCELLED'}
 
         # チャネルマップ作成を実行する
-        error_message = UI_operations.UI_bsdf_material_Merge(arg_target_object=target_object)
+        error_message = UI_operations.UI_bsdf_material_merge(arg_target_object=target_object)
         
         # エラーメッセージの有無を確認する
         if error_message != None:
@@ -148,7 +148,7 @@ class HOLOMON_OT_addon_bsdf_material_Merge(Operator):
 
 
 # マテリアルベイクパネルのプロパティ
-class HOLOMON_addon_bsdf_material_Merge_properties(PropertyGroup):
+class HOLOMON_addon_bsdf_material_merge_properties(PropertyGroup):
     # オブジェクト選択時のチェック関数を定義する
     def prop_object_select_poll(self, context, ):
         # メッシュオブジェクトのみ選択可能
@@ -168,9 +168,9 @@ class HOLOMON_addon_bsdf_material_Merge_properties(PropertyGroup):
 # 登録に関する処理
 # 登録対象のクラス名
 regist_classes = (
-    HOLOMON_PT_addon_bsdf_material_Merge,
-    HOLOMON_OT_addon_bsdf_material_Merge,
-    HOLOMON_addon_bsdf_material_Merge_properties,
+    HOLOMON_PT_addon_bsdf_material_merge,
+    HOLOMON_OT_addon_bsdf_material_merge,
+    HOLOMON_addon_bsdf_material_merge_properties,
 )
 
 # 作成クラスと定義の登録メソッド
@@ -179,12 +179,12 @@ def register():
     for regist_cls in regist_classes:
         bpy.utils.register_class(regist_cls)
     # シーン情報にカスタムプロパティを登録する
-    bpy.types.Scene.holomon_bsdf_material_Merge = PointerProperty(type=HOLOMON_addon_bsdf_material_Merge_properties)
+    bpy.types.Scene.holomon_bsdf_material_merge = PointerProperty(type=HOLOMON_addon_bsdf_material_merge_properties)
 
 # 作成クラスと定義の登録解除メソッド
 def unregister():
     # シーン情報のカスタムプロパティを削除する
-    del bpy.types.Scene.holomon_bsdf_material_Merge
+    del bpy.types.Scene.holomon_bsdf_material_merge
     # カスタムクラスを解除する
     for regist_cls in regist_classes:
         bpy.utils.unregister_class(regist_cls)
